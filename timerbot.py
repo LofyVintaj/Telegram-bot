@@ -14,11 +14,11 @@ def alarm(context: ContextTypes.context) -> None:
     """Send the alarm message."""
     print('context job', context.job)
     job = context.job
-    # data = job.data
-    # chat_id = job.chat_id
+    # data = job.data TODO: Не выводятся в job.data данные - исправить
+    # chat_id = job.chat_id TODO: Не выводятся в job.chat_id данные - исправить
     chat_id = 692256842
     data = '5'
-    context.bot.send_message(chat_id, text=f"Beep! {data} seconds are over!")
+    context.bot.send_message(chat_id, text=f"Beep! {data} seconds are over!") # Благодаря этому я могу отправлять сообщения
 
 
 def remove_job_if_exists(name: str, context: ContextTypes.context) -> bool:
@@ -46,7 +46,7 @@ def set_timer(update: Update, context: ContextTypes.context) -> None:
     job_removed = remove_job_if_exists(str(chat_id), context)
     # context.job_queue.run_once(alarm, due, chat_id=chat_id, name=str(chat_id), data=due)
     print(' job queue run once ')
-    context.job_queue.run_once(callback=alarm, when=due, name=str(chat_id))
+    context.job_queue.run_once(callback=alarm, when=due, name=str(chat_id)) # благодаря этому могу ставить в очередь задачи
 
     text = "Timer successfully set!"
     if job_removed:

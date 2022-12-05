@@ -32,7 +32,7 @@ def timerbot_func() :
 
     # Run the bot until the user presses Ctrl-C
     application.start_polling()
-    application.idle()
+    application.idle() # TODO: Нужно изучить что это
 
 
 def main() -> None:
